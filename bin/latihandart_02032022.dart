@@ -5,6 +5,7 @@ import 'dart:io';
 void pola1(int n1) {
   print("==== Pola Satu ==== ");
   print("n1 : $n1");
+  int num1 = 0, num2 = 0;
   //paruh atas
   for (int i = 1; i <= (n1 / 2).ceil(); i++) {
     //bintang kiri
@@ -14,7 +15,11 @@ void pola1(int n1) {
 
     //angka
     for (int j = 1; j <= i; j++) {
-      stdout.write(i);
+      num1 = i;
+      if (i > 9) {
+        num1 = i - 9;
+      }
+      stdout.write(num1);
       if (j < i) {
         stdout.write(" ");
       }
@@ -36,7 +41,11 @@ void pola1(int n1) {
 
     //angka
     for (int j = 1; j <= (n1 / 2).ceil() - i; j++) {
-      stdout.write((i + n1 / 2).ceil());
+      num2 = (i + n1 / 2).ceil();
+      if (num2 > 9) {
+        num2 = ((i + n1 / 2).ceil()) - 9;
+      }
+      stdout.write(num2);
       if (j < (n1 / 2).ceil() - i) {
         stdout.write(" ");
       }
@@ -91,7 +100,7 @@ void pola2(int n2) {
 }
 
 void main(List<String> arguments) {
-  stdout.write("n1 : ");
+  stdout.write("n1 (ganjil): ");
   int n1 = int.parse(stdin.readLineSync()!);
 
   stdout.write("n2 : ");
