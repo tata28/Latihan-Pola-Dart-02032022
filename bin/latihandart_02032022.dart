@@ -1,8 +1,58 @@
 import 'dart:io';
 
-void pola1(int n1) {}
+//NOTE : kadang" pola 1 dan pola 2 tidak bisa dijalankan bersamaan sehingga harus dikomen salah satu
+
+void pola1(int n1) {
+  print("==== Pola Satu ==== ");
+  print("n1 : $n1");
+  //paruh atas
+  for (int i = 1; i <= (n1 / 2).ceil(); i++) {
+    //bintang kiri
+    for (int j = 1; j <= (n1 / 2).ceil() - i; j++) {
+      stdout.write("*");
+    }
+
+    //angka
+    for (int j = 1; j <= i; j++) {
+      stdout.write(i);
+      if (j < i) {
+        stdout.write(" ");
+      }
+    }
+
+    //bintang kanan
+    for (int j = 1; j <= (n1 / 2).ceil() - i; j++) {
+      stdout.write("*");
+    }
+    print(" ");
+  }
+
+  //paruh bawah
+  for (int i = 1; i <= (n1 / 2).floor(); i++) {
+    //bintang kiri
+    for (int j = 1; j <= i; j++) {
+      stdout.write("*");
+    }
+
+    //angka
+    for (int j = 1; j <= (n1 / 2).ceil() - i; j++) {
+      stdout.write((i + n1 / 2).ceil());
+      if (j < (n1 / 2).ceil() - i) {
+        stdout.write(" ");
+      }
+    }
+
+    //bintang kanan
+    for (int j = 1; j <= i; j++) {
+      stdout.write("*");
+    }
+    print(" ");
+  }
+}
 
 void pola2(int n2) {
+  print("===== Pola Dua ====");
+  print("n2 : $n2");
   int del = 0, n = 1, m = n2, _m = n2;
   if (n2 > 9) {
     _m = 9;
@@ -41,12 +91,13 @@ void pola2(int n2) {
 }
 
 void main(List<String> arguments) {
-  // stdout.write("n1 : ");
-  //int n1 = int.parse(stdin.readLineSync()!);
+  stdout.write("n1 : ");
+  int n1 = int.parse(stdin.readLineSync()!);
 
-  // stdout.write("n2 : ");
-  //int n2 = int.parse(stdin.readLineSync()!);
+  stdout.write("n2 : ");
+  int n2 = int.parse(stdin.readLineSync()!);
 
-  //pola1(5);
-  pola2(8);
+  pola1(n1);
+  print(" ");
+  pola2(n2);
 }
